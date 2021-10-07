@@ -3,7 +3,6 @@ const router = vertex.router()
 
 router.get('/', (req, res) => {
     const data = {
-        image_profile: 'https://photos.google.com/photo/AF1QipNhxLlY69_fN_wpPiZzYxahxumABm_oxI7HHk7m',
         greeting: 'Hello, Welcome to my Portfolio!',
         introduction: 'I am a self taught junior web developer from the Puget Sound area.',
         languages: [
