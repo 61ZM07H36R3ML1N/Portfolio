@@ -3,7 +3,8 @@ const router = vertex.router()
 
 router.get('/', (req, res) => {
     const data = {
-        greeting: 'Hello, Welcome to my Portfolio!'
+        greeting: 'Hello, Welcome to my Portfolio!',
+        introduction: 'I am a self taught junior web developer from the Puget Sound area.'
     }
     
     
