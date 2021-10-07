@@ -3,7 +3,7 @@ const router = vertex.router()
 
 router.get('/', (req, res) => {
 
-    res.send('Hello!')
+    res.render('landing')
 
 })
 
