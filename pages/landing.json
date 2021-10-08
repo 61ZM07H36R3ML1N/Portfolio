@@ -1,9 +1,6 @@
 {
     "hero": {
-        "img_1": "https://lh3.googleusercontent.com/N1UMk6KtIHi04aGH4e1kI69MXZ18Vl4SD9gOOl7EPwOlFr5-31Ml7-PfF9O7s1NhBmWJ-yIGw3u8brAxHJlZTH-bBg",
-        "img_2": "https://lh3.googleusercontent.com/Sni_VgZdD8C9TEC1hh7DH70FOjSsr9tdpFcE67AEL3xFhbcVNLPGdCjFt9Iaxn0eqxYCqMW3EXMn1oV0aBuLrNlSlg",
-        "img_3": "https://lh3.googleusercontent.com/agqKco_3Qm_oCAlV35GoibTzjTPfgtiEg0cdE8RuqObAC3ItqEH70fkECHZ4lTdcAlovYXy53hBJ3bBp3Q9gF_Gn0Zs",
-        "img_4": "https://lh3.googleusercontent.com/C1i_KBLny94Z59lW8aYCntNMN4G6YjhOGT2VgPnxqLIKre_zhm8tjien_L8akTqnnZiHdUYVwC_MteGv4WramMo0HAQ"
+        "img_background": "https://lh3.googleusercontent.com/C1i_KBLny94Z59lW8aYCntNMN4G6YjhOGT2VgPnxqLIKre_zhm8tjien_L8akTqnnZiHdUYVwC_MteGv4WramMo0HAQ"
     },
     "greeting": "Hello, Welcome to my Portfolio!",
     "introduction": "I am a self taught junior web developer from the Puget Sound area.",
