@@ -1,5 +1,7 @@
 {
     "hero": {
+        "greeting": "Hello, Welcome to my Portfolio!",
+        "introduction": "My name is Brian Jamiel, I am a self taught junior web developer from the Puget Sound area.",
         "img_background": "https://lh3.googleusercontent.com/C1i_KBLny94Z59lW8aYCntNMN4G6YjhOGT2VgPnxqLIKre_zhm8tjien_L8akTqnnZiHdUYVwC_MteGv4WramMo0HAQ"
     },
     "greeting": "Hello, Welcome to my Portfolio!",
