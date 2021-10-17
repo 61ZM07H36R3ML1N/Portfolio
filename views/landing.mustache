@@ -162,6 +162,12 @@
                 }
                 
                 console.log('CONTACT FORM SUBMITTED')
+                $.ajax({
+                    url: '/api/subscriber',
+                    type: 'POST',
+                    data: visitor,
+                    success: function(response){}
+                })
             })
 
         })()
