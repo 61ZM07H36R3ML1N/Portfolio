@@ -1,3 +1,16 @@
+-------------------------------------
+**Throughout this project, I learned:
+
+    Project Structure
+    Templating Engine (Mustache)
+    Request Routing
+    REST API
+    CRUD operations
+    File uploading
+    CMS for blogs and projects
+    AJAX with jQuery
+------------------------------------
+
 # vertex-thomson
 
 This project was built with Turbo 360. To learn more, click here: https://www.turbo360.co
@@ -34,16 +47,3 @@ To build for production, run build:
 ```
 $ npm run build
 ```
-
----
-**Throughout this project, I learned:
-
-    Project Structure
-    Templating Engine (Mustache)
-    Request Routing
-    REST API
-    CRUD operations
-    File uploading
-    CMS for blogs and projects
-    AJAX with jQuery
----
