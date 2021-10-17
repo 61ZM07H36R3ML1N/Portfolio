@@ -35,3 +35,15 @@ To build for production, run build:
 $ npm run build
 ```
 
+---
+**Throughout this project, I learned:
+
+    Project Structure
+    Templating Engine (Mustache)
+    Request Routing
+    REST API
+    CRUD operations
+    File uploading
+    CMS for blogs and projects
+    AJAX with jQuery
+---
