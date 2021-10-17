@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     const projectCtr = new ProjectController()
     projectCtr.get()
     .then(projects => {
+        data['projects'] = projects
         console.log('Projects: ' + JSON.stringify(projects))
         res.render('landing', data)
     })
