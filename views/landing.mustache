@@ -130,15 +130,15 @@
         <div class="row mt-5">
             <form class="col-md-4 col-xl-4 mx-auto input-border">
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" placeholder="Name">
+                    <input id="contact-form-name" type="text" class="form-control form-control-lg" placeholder="Name">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" placeholder="Email">
+                    <input id="contact-form-email" type="text" class="form-control form-control-lg" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" placeholder="Message">
+                    <input id="contact-form-message" type="text" class="form-control form-control-lg" placeholder="Message">
                 </div>
-                <button class="btn btn-block btn-lg btn-info">SEND</button>
+                <button id="btn-contact-submit" class="btn btn-block btn-lg btn-info">SEND</button>
             </form>
         </div>
     </div>
@@ -148,6 +148,24 @@
     </div>
 
     {{>scripts}}
+    <script>
+        (function(){
+            console.log('HELLO!')
+            $('#btn-contact-submit').click(function(event){
+                if (event)
+                    event.preventDefault()
+
+                var visitor = {
+                    name: $('#cont-form-name').val(),
+                    email: $('#cont-form-email').val(),
+                    message: $('#cont-form-message').val()
+                }
+                
+                console.log('CONTACT FORM SUBMITTED')
+            })
+
+        })()
+    </script>
 </body>
 
 </html>
