@@ -1,54 +1,47 @@
 "use client";
 
-"use client";
-
+import * as React from "react";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils"; // This fixes the 'Cannot find name cn' error
 
 interface ProjectProps {
   title: string;
   description: string;
-  tags: string[];
+  tags?: string[];
   status: string;
+  className?: string;
 }
 
-export function GlitchCard({ title, description, tags, status }: ProjectProps) {
+export function GlitchCard({ title, description, tags = [], status, className }: ProjectProps) {
   return (
     <motion.div
-      whileHover={{
-        skewX: [0, -2, 2, 0],
-        x: [0, -1, 1, 0],
-        transition: { duration: 0.2, repeat: Infinity }
-      }}
-      className="relative group cursor-pointer"
+      whileHover={{ scale: 1.02 }}
+      className={cn("relative group cursor-pointer", className)}
     >
-      {/* Ghost layer for the glitch "shadow" */}
-      <motion.div 
-        className="absolute inset-0 bg-secondary/20 opacity-0 group-hover:opacity-100 -z-10"
-        animate={{ x: [-2, 2, -2], y: [1, -1, 1] }}
-        transition={{ duration: 0.1, repeat: Infinity }}
-      />
+      <div className="absolute inset-0 bg-secondary/10 opacity-0 group-hover:opacity-100 -z-10 rounded-xl transition-opacity" />
       
-      <Card className="border-muted bg-background/50 backdrop-blur-sm overflow-hidden border-2 group-hover:border-secondary transition-colors">
+      <Card className="border-muted bg-background/50 backdrop-blur-sm overflow-hidden border-2 group-hover:border-secondary transition-all">
         <CardHeader>
           <div className="flex justify-between items-start">
             <CardTitle className="font-mono text-xl tracking-tighter uppercase">
               {title}
             </CardTitle>
-            <Badge variant="outline" className="border-secondary text-secondary animate-pulse">
+            <Badge variant="outline" className="border-secondary text-secondary">
               {status}
             </Badge>
           </div>
-          <CardDescription className="text-muted-foreground pt-2">
+          <CardDescription className="text-muted-foreground line-clamp-2">
             {description}
           </CardDescription>
         </CardHeader>
+        
         <CardContent>
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span key={tag} className="text-[10px] font-mono bg-muted px-2 py-1 rounded">
-                #{tag}
+            {tags.map((tag, index) => (
+              <span key={`${tag}-${index}`} className="text-[10px] font-mono bg-muted px-2 py-0.5 rounded">
+                {tag}
               </span>
             ))}
           </div>
