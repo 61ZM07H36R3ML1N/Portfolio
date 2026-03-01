@@ -1,13 +1,13 @@
 # apphosting.yaml
-# This file maps your Firebase secrets to your Next.js environment variables.
-# https://firebase.google.com/docs/app-hosting/configure
+# Ensure this file is in your /brianjamiel-portfolio folder
+kind: "AppHostingYaml"
+version: "v1"
 
-# We'll use 'prod' as the environment name for brianjamiel.dev
 env:
-  - environment: prod1
+  - environment: prod
     variables:
       - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
-        value: portfolio-511bf-7ef0c # Replace with your actual project ID if different
+        value: "brianjamiel-portfolio"
     secrets:
       - variable: NEXT_PUBLIC_FIREBASE_API_KEY
         secret: NEXT_PUBLIC_FIREBASE_API_KEY
