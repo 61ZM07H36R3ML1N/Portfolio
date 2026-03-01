@@ -1,0 +1,13 @@
+{
+  "apphosting": {
+    "backendId": "portfolio",
+    "rootDir": "/brianjamiel-portfolio",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions"
+    ]
+  }
+}
