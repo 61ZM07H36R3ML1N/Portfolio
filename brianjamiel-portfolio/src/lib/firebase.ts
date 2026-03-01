@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query } from "firebase/firestore";
+import { Project } from "@/types/project";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,3 +14,22 @@ const firebaseConfig = {
 // Initialize Firebase only once
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 export const db = getFirestore(app);
+
+/**
+ * Fetches all projects from Firestore and types them according to our Project interface.
+ */
+export const getProjects = async (): Promise<Project[]> => {
+  try {
+    const projectsRef = collection(db, "projects");
+    const q = query(projectsRef);
+    const querySnapshot = await getDocs(q);
+    
+    return querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    })) as Project[];
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
+  }
+};
