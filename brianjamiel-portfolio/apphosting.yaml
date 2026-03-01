@@ -4,7 +4,7 @@ kind: "AppHostingYaml"
 version: "v1"
 
 env:
-  - environment: prod
+  - environment: prod1
     variables:
       - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
         value: "brianjamiel-portfolio"
