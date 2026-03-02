@@ -14,4 +14,4 @@ console.log("Connecting to project:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_I
 
 // Initialize Firebase only once
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-export const db = getFirestore(app);
+export const db = getFirestore(app, "brianjamiel-portfolio");
