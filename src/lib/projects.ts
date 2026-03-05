@@ -1,11 +1,13 @@
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
+import { Project } from "@/types";
 
-export async function getProjects() {
-  const q = query(collection(db, "projects"), orderBy("updatedAt", "desc"));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({
+export async function getJBLabsProjects(): Promise<Project[]> {
+  const projectsRef = collection(db, "projects");
+  const querySnapshot = await getDocs(projectsRef);
+  
+  return querySnapshot.docs.map((doc) => ({
     id: doc.id,
-    ...doc.data()
+    ...(doc.data() as Omit<Project, "id">),
   }));
 }
