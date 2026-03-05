@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Professional Portfolio | 2026
 
-## Getting Started
+A high-performance, server-first professional portfolio built with the latest web technologies. This project showcases my work, technical skills, and contributions to the TTRPG and software development communities.
 
-First, run the development server:
+## 🛠 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** [Next.js 15+](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) (Lightning CSS engine)
+- **Backend/Hosting:** [Firebase App Hosting](https://firebase.google.com/products/app-hosting) & Firestore
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- **Animations:** [MagicUI](https://magicui.design/) & Framer Motion
+- **Language:** TypeScript
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **SSR & Streaming:** Leveraging Next.js Server Components for near-instant page loads and optimal SEO.
+- **Bento Grid Layout:** Modern project showcase powered by MagicUI.
+- **Dynamic Content:** Projects and blog posts are fetched directly from Firestore, allowing for real-time updates without redeploying.
+- **Tailwind v4:** Utilizing the latest CSS variables-first approach for a streamlined, high-performance design system.
+- **Dark Mode:** Native system-preference detection with zero layout shift.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+├── src/
+│   ├── app/            # Next.js App Router (Pages & Server Actions)
+│   ├── components/     
+│   │   ├── ui/         # shadcn/ui components
+│   │   ├── magicui/    # MagicUI animated components
+│   │   └── portfolio/  # Custom shared compositions
+│   ├── lib/            # Firebase config and utility functions
+│   └── styles/         # Global CSS with Tailwind v4 @theme blocks
+├── public/             # Static assets
+├── apphosting.yaml     # Firebase App Hosting configuration
+└── firebase.json       # Firebase CLI & Emulator settings
