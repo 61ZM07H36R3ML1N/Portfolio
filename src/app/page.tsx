@@ -1,54 +1,45 @@
 import { getJBLabsProjects } from "@/lib/projects";
+import { getJBLabsArchitects } from "@/lib/architects";
 
 export default async function Home() {
-  const projects = await getJBLabsProjects();
+  const [projects, architects] = await Promise.all([
+    getJBLabsProjects(),
+    getJBLabsArchitects(),
+  ]);
 
   return (
-    <main className="max-w-5xl mx-auto py-20 px-6">
-      <h1 className="text-5xl font-extrabold tracking-tighter mb-2">JB LABS</h1>
-      <p className="text-zinc-500 mb-12">Experimental Development by Grem & RJ</p>
-
-      <div className="grid gap-12">
-        {projects.map((project) => (
-          <section key={project.id} className="group border-l-2 border-zinc-800 pl-8 transition-colors hover:border-white">
-            <div className="flex justify-between items-start">
-              <h2 className="text-3xl font-bold">{project.title}</h2>
-              <span className="text-xs uppercase tracking-widest bg-zinc-900 px-2 py-1 rounded text-zinc-400">
-                {project.status}
-              </span>
+    <main className="max-w-5xl mx-auto py-20 px-6 space-y-32">
+      {/* Hero / Projects Section */}
+      <section>
+        <h1 className="text-6xl font-black tracking-tighter mb-12">JB LABS</h1>
+        <div className="grid gap-16">
+          {projects.map((project) => (
+            <div key={project.id} className="group">
+               {/* ... Your project display logic from before ... */}
             </div>
-            
-            <p className="text-zinc-400 mt-4 text-lg max-w-2xl">
-              {project.description}
-            </p>
+          ))}
+        </div>
+      </section>
 
-            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div>
-                <span className="block text-zinc-600 uppercase text-[10px] font-bold">Engine</span>
-                <p>{project.engine}</p>
+      {/* Architects Section */}
+      <section className="border-t border-zinc-900 pt-20">
+        <h2 className="text-3xl font-bold mb-12 italic text-zinc-500">// THE ARCHITECTS</h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          {architects.map((person) => (
+            <div key={person.id} className="space-y-4">
+              <h3 className="text-2xl font-bold uppercase tracking-tight">{person.name}</h3>
+              <p className="text-zinc-500 font-mono text-sm">{person.role}</p>
+              <p className="text-zinc-400 leading-relaxed max-w-sm">
+                {person.bio}
+              </p>
+              <div className="flex gap-4 pt-2">
+                {person.github && <a href={person.github} className="text-xs underline text-zinc-600 hover:text-white">GITHUB</a>}
+                {person.linkedin && <a href={person.linkedin} className="text-xs underline text-zinc-600 hover:text-white">LINKEDIN</a>}
               </div>
-              <div>
-                <span className="block text-zinc-600 uppercase text-[10px] font-bold">Version</span>
-                <p>{project.version}</p>
-              </div>
-              {project.dice_system && (
-                <div>
-                  <span className="block text-zinc-600 uppercase text-[10px] font-bold">System</span>
-                  <p>{project.dice_system}</p>
-                </div>
-              )}
             </div>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span key={tag} className="text-xs text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded-full">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
