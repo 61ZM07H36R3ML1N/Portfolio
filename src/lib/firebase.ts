@@ -15,4 +15,4 @@ const firebaseConfig = {
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
 // Export Firestore for use in getJBLabsProjects and getJBLabsArchitects
-export const db = getFirestore(app);
+export const db = getFirestore(app, "brianjamiel-portfolio");
