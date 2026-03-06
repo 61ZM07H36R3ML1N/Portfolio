@@ -26,7 +26,7 @@ export default function ContactPage() {
               required
               className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {state?.error?.name && <p className="text-red-500 text-xs mt-1">{state.error.name}</p>}
+            {typeof state?.error === "object" && state?.error?.name && <p className="text-red-500 text-xs mt-1">{state.error.name}</p>}
           </div>
 
           <div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
               required
               className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {state?.error?.email && <p className="text-red-500 text-xs mt-1">{state.error.email}</p>}
+            {typeof state?.error === "object" && state?.error?.email && <p className="text-red-500 text-xs mt-1">{state.error.email}</p>}
           </div>
 
           <div>
@@ -50,7 +50,7 @@ export default function ContactPage() {
               rows={5}
               className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            {state?.error?.message && <p className="text-red-500 text-xs mt-1">{state.error.message}</p>}
+            {typeof state?.error === "object" && state?.error?.message && <p className="text-red-500 text-xs mt-1">{state.error.message}</p>}
           </div>
 
           <button
