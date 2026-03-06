@@ -1,71 +1,111 @@
 "use client";
 
-import { useActionState } from "react";
+import { useState, useTransition } from "react";
 import { submitContact } from "@/app/actions/contact";
 
 export default function ContactPage() {
-  // state will hold the return value from our Server Action (success or error)
-  const [state, formAction, isPending] = useActionState(submitContact, null);
+  const [isPending, startTransition] = useTransition();
+  const [status, setStatus] = useState<{ success?: boolean; error?: any } | null>(null);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 1. Convert state to FormData for the Server Action
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("message", formData.message);
+
+    startTransition(async () => {
+      // 2. Save to Firestore first (for your records)
+      const result = await submitContact(null, data);
+      setStatus(result);
+
+      if (result.success) {
+        // 3. Trigger Gmail for both devs
+        const devEmails = "your-gmail@gmail.com,partner-gmail@gmail.com";
+        const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        );
+
+        window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${devEmails}&su=${subject}&body=${body}`;
+      }
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
-    <main className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
+    <main className="min-h-screen bg-black text-white p-8">
+      <div className="max-w-2xl mx-auto space-y-12">
+        <section className="border-l-4 border-brand-blue pl-6">
+          <h1 className="text-6xl font-black tracking-tighter uppercase italic text-white">Contact</h1>
+          <p className="text-zinc-500 font-mono text-sm mt-2 uppercase tracking-widest">
+            [ Direct Transmission Protocol ]
+          </p>
+        </section>
 
-      {state?.success ? (
-        <div className="p-4 bg-green-900/30 text-green-400 rounded-md">
-          Message sent successfully! We will get back to you soon.
-        </div>
-      ) : (
-        <form action={formAction} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Full Name</label>
             <input
               type="text"
-              id="name"
               name="name"
               required
-              className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full bg-zinc-950 border border-zinc-900 p-4 focus:border-brand-blue outline-none transition-colors text-white"
             />
-            {typeof state?.error === "object" && state?.error?.name && <p className="text-red-500 text-xs mt-1">{state.error.name}</p>}
           </div>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+          <div className="space-y-2">
+            <label className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Return Address (Email)</label>
             <input
               type="email"
-              id="email"
               name="email"
               required
-              className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full bg-zinc-950 border border-zinc-900 p-4 focus:border-brand-blue outline-none transition-colors text-white"
             />
-            {typeof state?.error === "object" && state?.error?.email && <p className="text-red-500 text-xs mt-1">{state.error.email}</p>}
           </div>
 
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+          <div className="space-y-2">
+            <label className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Message Payload</label>
             <textarea
-              id="message"
               name="message"
               required
-              rows={5}
-              className="w-full p-2 rounded bg-zinc-900 border border-zinc-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              rows={6}
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full bg-zinc-950 border border-zinc-900 p-4 focus:border-brand-blue outline-none transition-colors text-white"
             />
-            {typeof state?.error === "object" && state?.error?.message && <p className="text-red-500 text-xs mt-1">{state.error.message}</p>}
           </div>
 
           <button
             type="submit"
             disabled={isPending}
-            className="px-6 py-2 bg-white text-black font-bold rounded hover:bg-zinc-200 disabled:opacity-50"
+            className="w-full py-4 bg-brand-blue text-white font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all disabled:opacity-50"
           >
-            {isPending ? "Sending..." : "Send Message"}
+            {isPending ? "Logging Inquiry..." : "Initialize Gmail Send"}
           </button>
 
-          {typeof state?.error === "string" && (
-            <p className="text-red-500 text-sm mt-2">{state.error}</p>
+          {status?.success && (
+            <p className="text-brand-blue font-mono text-xs animate-pulse">
+              SUCCESS: Inquiry logged. Opening Gmail...
+            </p>
           )}
         </form>
-      )}
+      </div>
     </main>
   );
 }
