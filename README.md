@@ -1,6 +1,6 @@
 # 🚀 Professional Portfolio | 2026
 
-A high-performance, server-first professional portfolio built with the latest web technologies. This project showcases my work, technical skills, and contributions to the TTRPG and software development communities.
+A high-performance, server-first professional portfolio built with the latest web technologies. This project showcases our work, technical skills, and contributions to the TTRPG and software development communities.
 
 ## 🛠 Tech Stack
 
