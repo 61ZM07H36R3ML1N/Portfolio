@@ -8,7 +8,7 @@ export function ProjectDashboard({ project }: { project: Project }) {
       <div className="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-8">
         <div>
           <h2 className="text-4xl font-black tracking-tighter uppercase">{project.title}</h2>
-          <p className="text-zinc-500 font-mono text-sm mt-1">ID: {project.id} // VER: {project.version}</p>
+          <p className="text-zinc-500 font-mono text-sm mt-1">ID: {project.id} {"\u00A0\u00A0"}VER: {project.version}</p>
         </div>
         <div className="flex gap-2">
           <Badge variant="outline" className="border-emerald-500/50 text-emerald-500">
