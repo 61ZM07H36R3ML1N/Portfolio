@@ -1,8 +1,13 @@
 import { getJBLabsProjects } from "@/lib/projects";
 import { ProjectDashboard } from "@/components/portfolio/project-dashboard";
+import { ArchitectsSection } from "@/components/portfolio/architects-section";
 
 export default async function Home() {
   const projects = await getJBLabsProjects();
+
+  <section className="mt-32">
+    <ArchitectsSection />
+  </section>
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-brand-blue selection:text-white">
