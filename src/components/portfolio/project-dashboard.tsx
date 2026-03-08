@@ -1,19 +1,23 @@
+import Link from "next/link";
 import { Project } from "@/types";
 import { Badge } from "@/components/ui/badge";
 
 export function ProjectDashboard({ project }: { project: Project }) {
   return (
     <div className="group relative overflow-hidden rounded-xl border border-zinc-900 bg-black p-8 shadow-2xl transition-all duration-300 hover:border-brand-blue/50">
-      {/* Interactive Gradient Background (Hidden by default, fades in on hover) */}
+      {/* Interactive Gradient Background */}
       <div className="absolute -inset-px bg-gradient-to-br from-brand-blue/10 to-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       <div className="relative z-10">
         {/* Header Info */}
         <div className="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-8">
           <div>
-            <h2 className="text-4xl font-black tracking-tighter uppercase group-hover:text-brand-blue transition-colors">
-              {project.title}
-            </h2>
+            {/* STEP 4: Linked Title */}
+            <Link href={`/projects/${project.id}`}>
+              <h2 className="text-4xl font-black tracking-tighter uppercase group-hover:text-brand-blue transition-colors cursor-pointer">
+                {project.title}
+              </h2>
+            </Link>
             <p className="text-zinc-500 font-mono text-sm mt-1">
               ID: {project.id} {"\u00A0\u00A0"} VER: {project.version}
             </p>
