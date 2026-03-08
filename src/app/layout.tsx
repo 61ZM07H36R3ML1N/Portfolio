@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "JB LABS | Innovative Software & TTRPG Development",
-  description: "Specialized in TTRPG VTTs and high-performance web applications.",
+  description: "Collaborative portfolio between Brian and RJ showcasing innovative software development and tabletop role-playing game (TTRPG) projects.",
 };
 
 export default function RootLayout({
