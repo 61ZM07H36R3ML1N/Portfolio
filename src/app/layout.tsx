@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Senior Full-Stack Developer",
+  title: "JB LABS | Innovative Software & TTRPG Development",
   description: "Specialized in TTRPG VTTs and high-performance web applications.",
 };
 
