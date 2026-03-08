@@ -55,6 +55,50 @@ export default async function ProjectDetailPage({
           {project.description}
         </p>
       </article>
+
+{/* Technical Deep Dive Section */}
+<section className="pt-16 space-y-12">
+  <div className="flex items-center gap-4">
+    <div className="h-px flex-1 bg-zinc-900" />
+    <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.4em]">Technical_Deep_Dive</h2>
+    <div className="h-px flex-1 bg-zinc-900" />
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-8">
+    {/* Mechanic 1: Blackjack Engine */}
+    <div className="p-6 rounded-lg border border-zinc-900 bg-zinc-950/50 hover:border-brand-blue/30 transition-colors">
+      <h3 className="text-brand-blue font-bold uppercase tracking-tight mb-2">Blackjack Engine</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        A unique d20 Roll-Under system where players aim to get as close to their attribute score as possible without going over. This creates a high-tension &quot;push your luck&quot; dynamic in every encounter.
+      </p>
+    </div>
+
+    {/* Mechanic 2: Looter-Shooter Progression */}
+    <div className="p-6 rounded-lg border border-zinc-900 bg-zinc-950/50 hover:border-brand-blue/30 transition-colors">
+      <h3 className="text-brand-blue font-bold uppercase tracking-tight mb-2">Looter-Shooter Progression</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Integrating ARPG-style loot drops into a tabletop environment. Weaponry and gear feature procedural traits, managed seamlessly via the companion app&apos;s inventory system.
+      </p>
+    </div>
+
+    {/* Mechanic 3: Real-Time Companion Sync */}
+    <div className="p-6 rounded-lg border border-zinc-900 bg-zinc-950/50 hover:border-brand-blue/30 transition-colors">
+      <h3 className="text-brand-blue font-bold uppercase tracking-tight mb-2">Real-Time Sync</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Built with Firebase and React, the Astro Inferno Companion App ensures that character health, ammo, and loot updates are reflected instantly across the GM&apos;s terminal and player devices.
+      </p>
+    </div>
+
+    {/* Mechanic 4: Custom VTT Integration */}
+    <div className="p-6 rounded-lg border border-zinc-900 bg-zinc-950/50 hover:border-brand-blue/30 transition-colors">
+      <h3 className="text-brand-blue font-bold uppercase tracking-tight mb-2">Custom VTT Engine</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        A streamlined Virtual Tabletop designed specifically for Astro Inferno’s space-combat distance tracking and atmospheric environmental effects.
+      </p>
+    </div>
+  </div>
+</section>
+
     </main>
   );
 }
