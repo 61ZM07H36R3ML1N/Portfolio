@@ -1,5 +1,6 @@
 import { getJBLabsProjects } from "@/lib/projects";
 import { ProjectDashboard } from "@/components/portfolio/project-dashboard";
+import { ComingSoonCard } from "@/components/portfolio/coming-soon-card";
 
 export default async function ProjectsPage() {
   const projects = await getJBLabsProjects();
@@ -19,6 +20,11 @@ export default async function ProjectsPage() {
         {projects.map((project) => (
           <ProjectDashboard key={project.id} project={project} />
         ))}
+{/* Future Lab Deployments */}
+        <ComingSoonCard 
+          title="Project: GitS:Arise" 
+          estimate="Q3 2026 - Q1 2027" 
+        />
       </div>
     </main>
   );
