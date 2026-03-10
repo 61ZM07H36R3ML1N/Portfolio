@@ -25,7 +25,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="bg-black text-white antialiased font-sans">
+      {/* Add suppressHydrationWarning to ignore extension-injected attributes */}
+      <body 
+        className="bg-black text-white antialiased font-sans" 
+        suppressHydrationWarning
+      >
         <Navbar />
         <main>{children}</main>
       </body>
