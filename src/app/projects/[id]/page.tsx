@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { LegalDisclaimer } from "@/components/portfolio/legal-disclaimer";
 
-// Next.js 15 requires params to be a Promise
+
 export default async function ProjectDetailPage({ 
   params 
 }: { 
@@ -55,7 +55,6 @@ export default async function ProjectDetailPage({
           Project Lore & Mechanics
         </h2>
         <p className="text-zinc-400 text-lg leading-relaxed mt-8">
-          {/* Fix: Using &apos; and &quot; for ESLint compliance */}
           The Astro Inferno companion app is designed to translate the complex tabletop 
           experience into a streamlined digital interface. Featuring a &quot;Blackjack&quot; 
           roll-under engine, it honors the original vision while providing real-time 
@@ -89,6 +88,25 @@ export default async function ProjectDetailPage({
           </div>
         </div>
       </section>
+
+{/* External Resources */}
+<section className="pt-8 space-y-4">
+  <h3 className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Original Source</h3>
+  <div className="flex">
+    <a 
+      href="https://astroinferno.com/webshop" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 bg-zinc-900/50 border border-zinc-800 p-4 rounded-lg hover:border-blue-500 transition-all"
+    >
+      <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+      <span className="text-xs font-bold uppercase tracking-tight text-zinc-300 group-hover:text-white">
+        Support Häxan Studios & Get the Manuals
+      </span>
+      <span className="text-zinc-600 group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+  </div>
+</section>
 
       {/* Attribution */}
       <LegalDisclaimer />
