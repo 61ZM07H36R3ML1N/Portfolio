@@ -6,7 +6,7 @@ export const Navbar = () => {
       <div className="text-xl font-bold text-white">
         <Link href="/">Portfolio</Link>
       </div>
-      <div className="flex items-center gap-x-15 text-sm font-medium text-gray-400">
+      <div className="flex items-center gap-x-8 text-sm font-medium text-gray-400">
         <Link href="/about" className="hover:text-blue-500 transition-colors">About</Link>
         <Link href="/projects" className="hover:text-blue-500 transition-colors">Projects</Link>
         <Link href="/contact" className="hover:text-blue-500 transition-colors">Contact</Link>
